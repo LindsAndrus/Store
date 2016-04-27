@@ -21,7 +21,7 @@ class OrdersController < ApplicationController
         redirect_to '/'
       else
         (session[:cartItems] ||= []) << params[:id]
-        redirect_to '/' and return
+        redirect_to controller:'products', action: 'show'
       end
     end
   end

@@ -17,24 +17,24 @@
     <th>Add to Cart</th>
     <th>Image</th>
   </tr>
-<% @products.each do |product| %>
-<tr>
-  <td><%= product.name %></td>
-  <td><%= product.description %></td>
-  <td>
-    <% if session[:id] %>
-      <form action="/orders/<%= product.id %>" method="post">
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-        <input name="_method" type="hidden" value="patch" />
-        <input type="submit" name="submit" value="Add">
-      </form>
-    <% else %>
-      <a href="/sessions/new">Log In to Add</a>
-    <% end %>
-  </td>
-  <td><img src="" alt="product img"/></td>
-<% end %>
-</tr>
+  <% @products.each do |product| %>
+  <tr>
+    <td><%= product.name %></td>
+    <td><%= product.description %></td>
+    <td>
+      <% if session[:id] %>
+        <form action="/orders/<%= product.id %>" method="post">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <input name="_method" type="hidden" value="patch" />
+          <input type="submit" name="submit" value="Add">
+        </form>
+      <% else %>
+        <a href="/sessions/new">Log In to Add</a>
+      <% end %>
+    </td>
+    <td><img src="" alt="product img"/></td>
+  </tr>
+  <% end %>
 </table>
 
 <%= flash[:message] %>

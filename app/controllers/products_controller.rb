@@ -7,8 +7,8 @@ class ProductsController < ApplicationController
   end
 
   def show
-    puts session[:cartItems]
-    @products = []
+    puts session[:cartItems], "this is session cart"
+    @products ||= []
     for idx in session[:cartItems]
       @products.push(Product.find(idx))
     end
