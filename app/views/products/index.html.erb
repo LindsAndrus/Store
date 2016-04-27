@@ -1,7 +1,7 @@
 <a href="/">Home</a>
 <% if session[:id] %>
 <a href="/sessions/<%=session[:id]%>" data-method='delete'>Log Out</a>
-<a href="/orders/<%=session[:id]%>">Cart</a>
+<a href="/products/<%=session[:id]%>">Cart</a>
 <% end %>
 <h2>Welcome!</h2>
 
@@ -17,6 +17,7 @@
     <th>Add to Cart</th>
     <th>Image</th>
   </tr>
+  <% if @products %>
   <% @products.each do |product| %>
   <tr>
     <td><%= product.name %></td>
@@ -34,6 +35,7 @@
     </td>
     <td><img src="" alt="product img"/></td>
   </tr>
+  <% end %>
   <% end %>
 </table>
 
