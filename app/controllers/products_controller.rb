@@ -7,6 +7,11 @@ class ProductsController < ApplicationController
   end
 
   def show
+    puts session[:cartItems]
+    @products = []
+    for idx in session[:cartItems]
+      @products.push(Product.find(idx))
+    end
   end
 
   def create
