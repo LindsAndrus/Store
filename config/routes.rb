@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
 
   resources :sessions, :users, :products, :orders
-
+  
   post 'users/create' 
 
   post 'sessions/create' 
 
   delete 'sessions/destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
