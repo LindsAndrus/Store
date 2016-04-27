@@ -7,9 +7,5 @@ class User < ActiveRecord::Base
   before_save do
     self.email.downcase!
     self.name.downcase.titleize
-<<<<<<< HEAD
   end
-=======
-   end
->>>>>>> origin/master
 end
