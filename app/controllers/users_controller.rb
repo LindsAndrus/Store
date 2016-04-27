@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     else
       flash[:error] = @userz.errors.full_messages
     end
-      redirect_to_root
+      redirect_to '/'
   end
 
   def edit
@@ -27,8 +27,8 @@ class UsersController < ApplicationController
   def destroy
   end
 
-  private 
-  def user_params
-   params.require(:user).permit(:name, :email, :password)
-  end
+  private
+    def user_params
+     params.require(:user).permit(:name, :email, :password)
+    end
 end
