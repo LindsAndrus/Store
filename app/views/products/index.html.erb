@@ -21,11 +21,17 @@
 <tr>
   <td><%= product.name %></td>
   <td><%= product.description %></td>
-<form action="/orders/<%= product.id %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input name="_method" type="hidden" value="patch" />
-  <td><input type="submit" name="submit" value="Add"></td>
-</form>
+  <td>
+    <% if session[:id] %>
+      <form action="/orders/<%= product.id %>" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input name="_method" type="hidden" value="patch" />
+        <input type="submit" name="submit" value="Add">
+      </form>
+    <% else %>
+      <a href="/sessions/new">Log In to Add</a>
+    <% end %>
+  </td>
   <td><img src="" alt="product img"/></td>
 <% end %>
 </tr>

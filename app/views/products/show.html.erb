@@ -1,2 +1,23 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<img src="https://www.eluxium.com/wp-content/uploads/2016/03/shoppingcart.png" alt="shopping cart" width=5%/>
+
+<h3>Items in your cart:</h3>
+
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Description</th>
+    <th>Price</th>
+  </tr>
+  <% @products.each do |product| %>
+  <tr>
+    <td><%= product.name %></td>
+    <td><%= product.description %></td>
+    <td>$<%= product.price %></td>
+  </tr>
+  <% end %>
+</table>
+<h5>Cart Total: <%=  %></h5>
+<h5>Tax: <%=  %></h5>
+<h5>Shipping: <%=  %></h5>
+<h5>Grand Total: <%=  %></h5>
+<button type="button" name="checkout"><a href="/orders/new">Check Out</a></button>
