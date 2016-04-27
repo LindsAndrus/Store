@@ -1,8 +1,9 @@
 class SessionsController < ApplicationController
-  def index
+  def new
   end
 
   def create
+    @user = User.create(user_params)
   end
 
   def destroy
