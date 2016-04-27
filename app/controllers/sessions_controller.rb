@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
    @loggedIn = User.find_by_email(params[:email])
     if @loggedIn && @loggedIn.authenticate(params[:password])
       session[:id] = @loggedIn.id
-      redirect_to_root
+      redirect_to '/products/index'
     else
       flash[:loginError] = "You entered the wrong login information"
       redirect_to '/sessions/new'

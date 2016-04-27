@@ -1,3 +1,4 @@
+<h2>Create An Account!</h2>
 <form action='/users/create' method='post' style="border:2px solid black; width:30%; height:30%; margin:15px; padding:10px">
   <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
   <input type='text' name='user[name]' placeholder='Name' /> <br>
@@ -6,6 +7,7 @@
   <input type='submit' value='Create' />
 </form>
 
+<h2>Log In</h2>
 <form action='/sessions/create' method='post' style="border:2px solid black; width:30%; height:30%; margin:15px; padding:10px">
   <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
   <input type='text' name='email' placeholder='email' />
