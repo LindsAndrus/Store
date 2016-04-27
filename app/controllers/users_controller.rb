@@ -15,7 +15,11 @@ class UsersController < ApplicationController
     else
       flash[:error] = @userz.errors.full_messages
     end
+<<<<<<< HEAD
       redirect_to '/'
+=======
+      redirect_to '/products/index'
+>>>>>>> origin/master
   end
 
   def edit
