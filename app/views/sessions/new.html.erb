@@ -1,2 +1,26 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<form action='/users/create' method='post' style="border:2px solid black; width:30%; height:30%; margin:15px; padding:10px">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <input type='text' name='user[name]' placeholder='Name' /> <br>
+  <input type='text' name='user[email]' placeholder='email' /> <br>
+   <input type='password' name='user[password]' placeholder='password' /> <br>
+  <input type='submit' value='Create' />
+</form>
+
+<form action='/sessions/create' method='post' style="border:2px solid black; width:30%; height:30%; margin:15px; padding:10px">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <input type='text' name='email' placeholder='email' />
+   <input type='password' name='password' placeholder='password' />
+  <input type='submit' value='Login' />
+</form>
+
+
+
+	<p><%=flash[:success]%></p>
+
+	<p><%=flash[:loginError]%></p>
+
+	<% if flash[:error] %>
+		<%flash[:error].each do |error|%>
+			<p><%=error%></p>
+		<%end%>
+	<%end%>
