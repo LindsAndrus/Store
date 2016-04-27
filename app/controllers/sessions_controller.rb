@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-  	session[:id] = nill
+  	reset_session
     redirect_to '/products/index'
   end
 end

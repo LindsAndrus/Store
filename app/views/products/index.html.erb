@@ -1,6 +1,6 @@
 <a href="/">Home</a>
 <% if session[:id] %>
-<a href="/session" method="destroy">Log Out</a>
+<%= button_to "logout", {controller: :sessions, action: :destroy}, method: :delete%>
 <a href="/orders/session[:id]">Cart</a>
 <% end %>
 <h2>Welcome!</h2>
