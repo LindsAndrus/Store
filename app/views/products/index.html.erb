@@ -1,7 +1,12 @@
 <a href="/">Home</a>
 <% if session[:id] %>
 <a href="/sessions/<%=session[:id]%>" data-method='delete'>Log Out</a>
+<<<<<<< HEAD
 <a href="/products/<%=session[:id]%>">Cart</a>
+=======
+<a href="/orders/<%=session[:id]%>">Cart</a>
+
+>>>>>>> origin/master
 <% end %>
 <h2>Welcome!</h2>
 
