@@ -1,21 +1,21 @@
 class SessionsController < ApplicationController
   def new
-  	render 'sessions/new'
+  	redirect_to "/sessions/new"
   end
 
   def create
-   @loggedIn = User.find_by_email(params[:email])
-    if @loggedIn && @loggedIn.authenticate(params[:password])
-      session[:id] = @loggedIn.id
+    user = User.find_by_email(params[:email])
+    if user && user.authenticate(params[:password])
+      session[:id] = user[:id]
       redirect_to '/'
     else
-      flash[:loginError] = "You entered the wrong login information"
-      redirect_to '/sessions/new'
-   end
+      flash[:danger] = 'Invalid email/password combination'
+      redirect_to "/sessions/new"
+    end
   end
 
   def destroy
-  	reset_session
-    redirect_to '/'
+    session[:user_id] = nil
+    redirect_to '/sessions/new'
   end
 end
