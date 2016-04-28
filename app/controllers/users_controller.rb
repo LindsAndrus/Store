@@ -9,17 +9,14 @@ class UsersController < ApplicationController
   end
 
   def create
-    @userz = User.new(user_params)
-    if @userz.save
-      flash[:success] = "You've created a new account, yipee!"
+    @user = User.new(user_params)
+    if @user.save
+      session[:id] = @user.id
+      redirect_to "/users"
     else
-      flash[:error] = @userz.errors.full_messages
+      flash[:errors] = @user.errors.full_messages
+      redirect_to "/"
     end
-<<<<<<< HEAD
-      redirect_to '/'
-=======
-      redirect_to '/products/index'
->>>>>>> origin/master
   end
 
   def edit
