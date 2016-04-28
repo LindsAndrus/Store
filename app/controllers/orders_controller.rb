@@ -3,7 +3,6 @@ class OrdersController < ApplicationController
   end
 
   def new
-    # @products = session[:cartItems]
   end
 
   def show

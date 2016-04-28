@@ -13,22 +13,26 @@
     <th>Item</th>
     <th>Description</th>
     <th>Price</th>
+    <th>Remove?</th>
   </tr>
   <% if @products %>
   <% @products.each do |product| %>
-  <% @totalPrice ||= 0 %>
+  <% @totalPrice ||= 0
+     @position ||= 0 %>
   <tr>
     <td><%= product.name %></td>
     <td><%= product.description %></td>
     <td>$<%= '%.2f' % product.price %></td>
-    <% @totalPrice += product.price %>
+    <td><a href="/products/<%= @position %>" data-method="delete">Remove from Cart</a></td>
+    <% @totalPrice += product.price
+       @position += 1 %>
   </tr>
   <% end %>
   <% end %>
 </table>
 <h5>Cart Total: $<%= '%.2f' % @totalPrice %></h5>
 <% @tax = @totalPrice * 0.09 %>
-<h5>Tax: $<%= @tax %></h5>
+<h5>Tax: $<%= '%.2f' % @tax %></h5>
 <h5>Shipping: $6.95</h5>
 <h5>Grand Total: $<%= @totalPrice + @tax + 6.95 %></h5>
 <button type="button" name="checkout"><a href="/orders/new">Check Out</a></button>

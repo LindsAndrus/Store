@@ -1,6 +1,9 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.all
+    if session[:id]
+      @user = User.find(session[:id])
+    end
   end
 
   def new
@@ -25,5 +28,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    session[:cartItems].delete_at(params[:id].to_i)
+    redirect_to controller: 'products', action: 'show', id: session[:id]
   end
 end
