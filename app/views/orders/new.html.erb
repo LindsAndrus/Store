@@ -1,2 +1,17 @@
-<h1>Orders#new</h1>
-<p>Find me in app/views/orders/new.html.erb</p>
+<h2>Check Out</h2>
+
+<form action="/orders" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <% if @products
+    session[:cartItems].each do |product| %>
+    <input type="hidden" name="product_id" value="<%= product.id %>">
+  <% end
+    end %>
+  Name on Card:<input type="text" name=""><br>
+  Shipping Address:<input type="text" name=""><br>
+  Billing Address:<input type="text" name=""><br>
+  Credit Card #:<input type="text" name=""><br>
+  Expiration Date:<input type="date" name=""><br>
+  Security Code:<input type="text" name=""><br>
+  <input type="submit" name="submit" value="Submit Order">
+</form>

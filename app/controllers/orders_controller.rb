@@ -3,12 +3,17 @@ class OrdersController < ApplicationController
   end
 
   def new
+    # @products = session[:cartItems]
   end
 
   def show
+
   end
 
   def create
+    @order = Order.create(total:params[:grandTotal], user_id:session[:id])
+    # @prodOrd = Prod_orders.create(order_id:@order.id, product_id:params[:product_id])
+    redirect_to @order
   end
 
   def edit
