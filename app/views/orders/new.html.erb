@@ -1,3 +1,7 @@
+<a href="/">Home</a>
+<a href="/products/<%=session[:id]%>">Cart</a>
+<a href="/sessions/<%=session[:id]%>" data-method='delete'>Log Out</a>
+
 <h2>Check Out</h2>
 
 <form action="/orders" method="post">
