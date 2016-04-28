@@ -16,16 +16,19 @@
   </tr>
   <% if @products %>
   <% @products.each do |product| %>
+  <% @totalPrice ||= 0 %>
   <tr>
     <td><%= product.name %></td>
     <td><%= product.description %></td>
-    <td>$<%= product.price %></td>
+    <td>$<%= '%.2f' % product.price %></td>
+    <% @totalPrice += product.price %>
   </tr>
   <% end %>
   <% end %>
 </table>
-<h5>Cart Total: <%=  %></h5>
-<h5>Tax: <%=  %></h5>
-<h5>Shipping: <%=  %></h5>
-<h5>Grand Total: <%=  %></h5>
+<h5>Cart Total: $<%= '%.2f' % @totalPrice %></h5>
+<% @tax = @totalPrice * 0.09 %>
+<h5>Tax: $<%= @tax %></h5>
+<h5>Shipping: $6.95</h5>
+<h5>Grand Total: $<%= @totalPrice + @tax + 6.95 %></h5>
 <button type="button" name="checkout"><a href="/orders/new">Check Out</a></button>
