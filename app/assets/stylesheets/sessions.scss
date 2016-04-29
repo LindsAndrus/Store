@@ -1,3 +1,30 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+*{
+  margin: 0;
+  padding: 0;
+}
+h1{
+  padding-top: 7%;
+  font-size: 100px;
+  text-align: center;
+  color: white;
+}
+button{
+  margin-left: 47%;
+  background-color: gray;
+  color: white;
+  font-size: 35px;
+}
+a{
+  color: white;
+}
+.wrapper{
+  height: 979px;
+  background: url('http://4.bp.blogspot.com/-dUgQdZ2kMFI/T3e2Dm1X3hI/AAAAAAAAA9I/ubnZRwDGC-0/s1600/3d_lines_tech_sample-01.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
